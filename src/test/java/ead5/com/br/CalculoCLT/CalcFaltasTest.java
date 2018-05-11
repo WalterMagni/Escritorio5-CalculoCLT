@@ -21,7 +21,7 @@ public class CalcFaltasTest {
 		double salario = 2000;
 		
 		CalculoBase calculo = new CalcFaltas(salario, 1);
-		assertEquals(1927.28, calculo.calcularAbsoluto(), 0);
+		assertEquals(1927.28, calculo.calcularAbsoluto(), 0.01);
 	}
 
 
