@@ -1,6 +1,8 @@
+//CONVERTIDO
+
 package ead5.com.br.CalculoCLT;
 
-import static org.junit.Assert.assertEquals;
+import java.math.BigDecimal;
 
 import org.junit.Test;
 
@@ -9,54 +11,67 @@ public class ValeRefeicaoTest {
 	@Test
 	public void testar22DiasCerto() {
 		
-		double salario = 2000;
+		BigDecimal salario = new BigDecimal(2000);
+		BigDecimal valor = new BigDecimal(20);
 		
-		CalculoBase calculo = new ValeRefeicao(salario, 20, 5);
+		
+		
+		CalculoBase calculo = new ValeRefeicao(salario, valor, 5);
 		assertEquals(1912, calculo.calcularAbsoluto(), 0);
 	}
 	
+	private void assertEquals(int i, BigDecimal calcularAbsoluto, int j) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	@Test
 	public void testar22DiasErrado() {
 		
-		double salario = 2000;
+		BigDecimal salario = new BigDecimal(2000);
+		BigDecimal valor = new BigDecimal(20);
 		
-		CalculoBase calculo = new ValeRefeicao(salario, 20, 5);
+		CalculoBase calculo = new ValeRefeicao(salario, valor, 5);
 		assertEquals(1900, calculo.calcularAbsoluto(), 0);
 	}
 		
 	@Test
 	public void testar26DiasCerto() {
 		
-		double salario = 2000;
+		BigDecimal salario = new BigDecimal(2000);
+		BigDecimal valor = new BigDecimal(20);
 		
-		CalculoBase calculo = new ValeRefeicao(salario, 20, 6);
+		CalculoBase calculo = new ValeRefeicao(salario, valor, 6);
 		assertEquals(1896, calculo.calcularAbsoluto(), 0);
 	}
 	
 	@Test
 	public void testar26DiasErrado() {
 		
-		double salario = 2000;
+		BigDecimal salario = new BigDecimal(2000);
+		BigDecimal valor = new BigDecimal(20);
 		
-		CalculoBase calculo = new ValeRefeicao(salario, 20, 6);
+		CalculoBase calculo = new ValeRefeicao(salario, valor, 6);
 		assertEquals(1800, calculo.calcularAbsoluto(), 0);
 	}
 	
 	@Test
 	public void testar15DiasCerto() {
 		
-		double salario = 2000;
+		BigDecimal salario = new BigDecimal(2000);
+		BigDecimal valor = new BigDecimal(20);
 		
-		CalculoBase calculo = new ValeRefeicao(salario, 20, 15);
+		CalculoBase calculo = new ValeRefeicao(salario, valor, 15);
 		assertEquals(1940, calculo.calcularAbsoluto(), 0);
 	}
 	
 	@Test
 	public void testar15DiasErrado() {
 		
-		double salario = 2000;
+		BigDecimal salario = new BigDecimal(2000);
+		BigDecimal valor = new BigDecimal(20);
 		
-		CalculoBase calculo = new ValeRefeicao(salario, 20, 15);
+		CalculoBase calculo = new ValeRefeicao(salario, valor, 15);
 		assertEquals(1900, calculo.calcularAbsoluto(), 0);
 	}
 	

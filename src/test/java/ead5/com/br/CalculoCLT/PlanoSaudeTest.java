@@ -1,6 +1,6 @@
 package ead5.com.br.CalculoCLT;
 
-import static org.junit.Assert.*;
+import java.math.BigDecimal;
 
 import org.junit.Test;
 
@@ -9,18 +9,25 @@ public class PlanoSaudeTest {
 	@Test
 	public void testarPlanoSaude() {
 		
-		double salario = 2000;
+		BigDecimal salario = new BigDecimal(2000);
+		BigDecimal desconto = new BigDecimal(100);
 		
-		CalculoBase calculo = new PlanoSaude(salario, 100);
+		CalculoBase calculo = new PlanoSaude(salario, desconto);
 		assertEquals(1900, calculo.calcularAbsoluto(), 0);
 	}
 	
+	private void assertEquals(int i, BigDecimal calcularAbsoluto, int j) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	@Test
 	public void testarPlanoSaudeDois() {
 		
-		double salario = 2000;
+		BigDecimal salario = new BigDecimal(2000);
+		BigDecimal desconto = new BigDecimal(40);
 		
-		CalculoBase calculo = new PlanoSaude(salario, 40);
+		CalculoBase calculo = new PlanoSaude(salario, desconto);
 		assertEquals(1950, calculo.calcularAbsoluto(), 0);
 	}
 

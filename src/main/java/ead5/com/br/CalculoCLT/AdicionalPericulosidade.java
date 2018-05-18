@@ -1,12 +1,17 @@
+//CONVERTIDO
+
 package ead5.com.br.CalculoCLT;
+
+import java.math.BigDecimal;
 
 public class AdicionalPericulosidade extends CalculoBase{
 
 	private boolean cond;
+	BigDecimal b1 = new BigDecimal(0.3);
 	
 	
 	//construtor
-	public AdicionalPericulosidade(double valor, boolean cond) {
+	public AdicionalPericulosidade(BigDecimal valor, boolean cond) {
 		super(valor);
 		this.cond = cond;
 		
@@ -14,10 +19,10 @@ public class AdicionalPericulosidade extends CalculoBase{
 	
 
 	@Override
-	public double calcularAbsoluto() {
+	public BigDecimal calcularAbsoluto() {
 		
 		if (cond == true) {
-			return valor * 0.3;
+			return valor.multiply(b1);
 		}
 		else {			
 			return valor;

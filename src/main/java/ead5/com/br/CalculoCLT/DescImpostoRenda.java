@@ -1,13 +1,34 @@
+//CONVERTIDO
+
 package ead5.com.br.CalculoCLT;
+
+import java.math.BigDecimal;
 
 public class DescImpostoRenda extends CalculoBase  {
 	
 	private int dependentes;
 	
+	BigDecimal b1 = new BigDecimal(1903.98);
+	BigDecimal b2 = new BigDecimal(2826.66);
+	BigDecimal b3 = new BigDecimal(3751.05);
+	BigDecimal b4 = new BigDecimal(3751.06);
+	BigDecimal b5 = new BigDecimal(4664.68);
+	BigDecimal b6 = new BigDecimal(4664.68);
+	BigDecimal b7 = new BigDecimal(4664.68);
+	BigDecimal d1 = new BigDecimal(0.92);
+	BigDecimal d2 = new BigDecimal(0.85);
+	BigDecimal d3 = new BigDecimal(0.78);
+	BigDecimal d4 = new BigDecimal(0.72);
+	BigDecimal v1 = new BigDecimal(0);
+	BigDecimal v2 = new BigDecimal(189.59);
+	BigDecimal v3 = new BigDecimal(dependentes);
 	
+	
+	
+		
 	
 	//construtor
-	public DescImpostoRenda(double valor, int dependentes) {
+	public DescImpostoRenda(BigDecimal valor, int dependentes) {
 		super(valor);
 		this.dependentes = dependentes;
 	}
@@ -15,35 +36,36 @@ public class DescImpostoRenda extends CalculoBase  {
 	
 	
 	@Override
-	public double calcularAbsoluto() {
+	public BigDecimal calcularAbsoluto() {
 		
-		double descINSS = new DescINSS(valor).calcularAbsoluto();
+		BigDecimal desconto = v1;
+		BigDecimal descINSS = new DescINSS(valor).calcularAbsoluto();
 		
-		if (valor <= 1903.98) {
-			return 0;
+		if (descINSS.compareTo(b1) < 1903.98) {
+			return valor;
 		} 
 		
-		double desconto = 0;
-		 
-		if (valor <= 1903.98 && valor >= 2826.65 ) {
+		else if (descINSS.compareTo(b1) >= 1903.98 && descINSS.compareTo(b2) <= 2826.65 ) {
 
-			desconto = descINSS * 0.92;
-			return desconto - 189.59 * dependentes;
+			desconto = descINSS.multiply(d1);
+			return desconto.subtract(v2.multiply(v3));
 		} 
-		else if (descINSS <= 2826.66 && descINSS >= 3751.05 ) {
-			desconto = descINSS * 0.85;
-			return desconto  - 189.59 * dependentes;
+		 
+		else if (descINSS.compareTo(b2) >= 2826.66 && descINSS.compareTo(b3) <= 3751.05) {
+
+			desconto = descINSS.multiply(d2);
+			return desconto.subtract(v2.multiply(v3));
+		} 
+		else if (descINSS.compareTo(b4) >= 3751.06 && descINSS.compareTo(b5) <= 4664.68 ) {
+			desconto = descINSS.multiply(d3);
+			return desconto.subtract(v2.multiply(v3));
 		}
-		else if (descINSS <= 3751.06 && descINSS >= 4664.68 ) {
-			desconto = descINSS * 0.78;
-			return desconto  - 189.59 * dependentes;
-		}
+
 		else {
-			desconto = descINSS * 0.72;
-			return desconto  - 189.59 * dependentes;
+			desconto = descINSS.multiply(d4);
+			return desconto.subtract(v2.multiply(v3));
 		}
 	}
-
 	
 
 	@Override

@@ -1,28 +1,32 @@
+//CONVERTIDO
+
 package ead5.com.br.CalculoCLT;
+
+import java.math.BigDecimal;
 
 public class DemaisBeneficios extends CalculoBase{
 	
-	private double demBeneficios;
+	private BigDecimal demBeneficios;
 
-	public double getDemBeneficios() {
+	public BigDecimal getDemBeneficios() {
 		return demBeneficios;
 	}
 
-	public void setDemBeneficios(double demBeneficios) {
+	public void setDemBeneficios(BigDecimal demBeneficios) {
 		this.demBeneficios = demBeneficios;
 	}
 
 	
 	//construtor
-	public DemaisBeneficios(double valor, double demBeneficios) {
+	public DemaisBeneficios(BigDecimal valor, BigDecimal demBeneficios) {
 		super(valor);
 		this.demBeneficios = demBeneficios;
 	}
 	
 	@Override
-	public double calcularAbsoluto() {
+	public BigDecimal calcularAbsoluto() {
 		
-		return valor + demBeneficios;
+		return valor.add(demBeneficios);
 	}
 
 	@Override

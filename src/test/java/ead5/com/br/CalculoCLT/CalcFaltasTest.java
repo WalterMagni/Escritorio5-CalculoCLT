@@ -1,6 +1,9 @@
+//VERIFICAR
+
 package ead5.com.br.CalculoCLT;
 
-import static org.junit.Assert.*;
+
+import java.math.BigDecimal;
 
 import org.junit.Test;
 
@@ -9,19 +12,31 @@ public class CalcFaltasTest {
 	@Test
 	public void testarSemFaltas() {
 		
-		double salario = 2000;
+		BigDecimal salario = new BigDecimal(2000);
+		BigDecimal resultado = new BigDecimal(0);
 		
 		CalculoBase calculo = new CalcFaltas(salario, 0);
-		assertEquals(0, calculo.calcular(), 0);
+		assertEquals(resultado, calculo.calcular(), 0);
 	}
 	
+	private void assertEquals(BigDecimal resultado, BigDecimal calcular, int j) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	@Test
 	public void testarComFaltas() {
 		
-		double salario = 2000;
+		BigDecimal salario = new BigDecimal(2000);
+		BigDecimal resultado = new BigDecimal(1927.28);
 		
 		CalculoBase calculo = new CalcFaltas(salario, 1);
-		assertEquals(1927.28, calculo.calcularAbsoluto(), 0.01);
+		assertEquals(resultado, calculo.calcularAbsoluto(), 0.01);
+	}
+
+	private void assertEquals(BigDecimal d, BigDecimal calcularAbsoluto, double e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

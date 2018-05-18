@@ -1,21 +1,25 @@
+//CONVERTIDO
+
 package ead5.com.br.CalculoCLT;
+
+import java.math.BigDecimal;
 
 public class ContraCheque {
 
 	
-	private double valorBruto;
+	private BigDecimal valorBruto;
 	private int faltas;
-	private double descontoPlanoSaude;
+	private BigDecimal descontoPlanoSaude;
 	private boolean recebeAdicionalPericulosidade;
-	private double valeRefeicao;
-	private double valeTransporte;
-	private double valeAlimentacao;
+	private BigDecimal valeRefeicao;
+	private BigDecimal valeTransporte;
+	private BigDecimal valeAlimentacao;
 	private int diasTrabalhos;
-	private double beneficios;
+	private BigDecimal beneficios;
 	
 	
-	public ContraCheque(double valorBruto, int faltas, double descontoPlanoSaude, boolean recebeAdicionalPericulosidade,
-			double valeRefeicao, double valeTransporte, double valeAlimentacao, double beneficios, int diasTrabalhados) {
+	public ContraCheque(BigDecimal valorBruto, int faltas, BigDecimal descontoPlanoSaude, boolean recebeAdicionalPericulosidade,
+			BigDecimal valeRefeicao, BigDecimal valeTransporte, BigDecimal valeAlimentacao, BigDecimal beneficios, int diasTrabalhados) {
 		super();
 		this.valorBruto = valorBruto;
 		this.faltas = faltas;
@@ -29,50 +33,56 @@ public class ContraCheque {
 	}
 	
 	
-	public double getDescontoFaltasAbsoluto() {
+	public BigDecimal getDescontoFaltasAbsoluto() {
 		return new CalcFaltas(valorBruto, faltas).calcularAbsoluto();
 	}
-	public double getDescontoFaltas() {
+	public BigDecimal getDescontoFaltas() {
 		return new CalcFaltas(valorBruto, faltas).calcular();
 	}
 	
-	public double getDescontoPlanoSaudeAbsoluto() {
+	public BigDecimal getDescontoPlanoSaudeAbsoluto() {
 		return new PlanoSaude(valorBruto, descontoPlanoSaude).calcularAbsoluto();
 	}
 	
-	public double getDescontoPlanoSaude() {
+	public BigDecimal getDescontoPlanoSaude() {
 		return new PlanoSaude(valorBruto, descontoPlanoSaude).calcular();
 	}
 	
-	public double getAdicionalPericulosidade() {
+	public BigDecimal getAdicionalPericulosidade() {
 		return new AdicionalPericulosidade(valorBruto, recebeAdicionalPericulosidade).calcular();
 	}
 	
-	public double getValeAlimentacaoAbsoluto() {
+	public BigDecimal getValeAlimentacaoAbsoluto() {
 		return new ValeAlimentacao(valorBruto, valeAlimentacao, diasTrabalhos).calcularAbsoluto();
 	}
 	
-	public double getValeAlimentacao() {
+	public BigDecimal getValeAlimentacao() {
 		return new ValeAlimentacao(valorBruto, valeAlimentacao, diasTrabalhos).calcular();
 	}
 	
-	public double getValeRefeicaoAbsoluto() {
+	public BigDecimal getValeRefeicaoAbsoluto() {
 		return new ValeRefeicao(valorBruto, valeRefeicao, diasTrabalhos).calcularAbsoluto();
 	}
 	
-	public double getValeRefeicao() {
+	public BigDecimal getValeRefeicao() {
 		return new ValeRefeicao(valorBruto, valeRefeicao, diasTrabalhos).calcular();
 	}
 	
-	public double getValeTransporteAbsoluto() {
-		return new ValeTransporte(valorBruto, valeTransporte, valeTransporte > 0).calcularAbsoluto();
+	public BigDecimal getValeTransporteAbsoluto() {
+		
+		BigDecimal b1 = new BigDecimal(0);
+		
+		return new ValeTransporte(valorBruto, valeTransporte, valeTransporte.compareTo(b1) > 0).calcularAbsoluto();
 	}
 	
-	public double getValeTransporte() {
-		return new ValeTransporte(valorBruto, valeTransporte, valeTransporte > 0).calcular();
+	public BigDecimal getValeTransporte() {
+		
+		BigDecimal b1 = new BigDecimal(0);
+		
+		return new ValeTransporte(valorBruto, valeTransporte, valeTransporte.compareTo(b1) > 0).calcular();
 	}
 	
-	public double getBeneficios() {
+	public BigDecimal getBeneficios() {
 		return new DemaisBeneficios(valorBruto, beneficios).calcular();
 	}
 	
