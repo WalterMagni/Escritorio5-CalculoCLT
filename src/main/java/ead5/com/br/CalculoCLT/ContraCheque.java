@@ -16,10 +16,12 @@ public class ContraCheque {
 	private BigDecimal valeAlimentacao;
 	private int diasTrabalhos;
 	private BigDecimal beneficios;
+	private BigDecimal FGTS;
+    private int meses;
 	
 	
 	public ContraCheque(BigDecimal valorBruto, int faltas, BigDecimal descontoPlanoSaude, boolean recebeAdicionalPericulosidade,
-			BigDecimal valeRefeicao, BigDecimal valeTransporte, BigDecimal valeAlimentacao, BigDecimal beneficios, int diasTrabalhados) {
+			BigDecimal valeRefeicao, BigDecimal valeTransporte, BigDecimal valeAlimentacao, BigDecimal beneficios, int diasTrabalhados, BigDecimal FGTS, int meses) {
 		super();
 		this.valorBruto = valorBruto;
 		this.faltas = faltas;
@@ -30,6 +32,7 @@ public class ContraCheque {
 		this.valeAlimentacao = valeAlimentacao;
 		this.beneficios = beneficios;
 		this.diasTrabalhos = diasTrabalhados;
+		this.FGTS = FGTS;
 	}
 	
 	
@@ -86,6 +89,8 @@ public class ContraCheque {
 		return new DemaisBeneficios(valorBruto, beneficios).calcular();
 	}
 	
-	
+	public BigDecimal getFGTS(){
+		return new FGTS(valorBruto, meses).calcularAbsoluto();
+	}
 	
 }
