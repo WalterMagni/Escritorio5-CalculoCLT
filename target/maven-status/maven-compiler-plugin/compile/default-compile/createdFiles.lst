@@ -1,0 +1,14 @@
+ead5\com\br\calculoclt\calculo\PlanoSaude.class
+ead5\com\br\calculoclt\calculo\ValeAlimentacao.class
+ead5\com\br\calculoclt\calculo\DescImpostoRenda.class
+ead5\com\br\calculoclt\calculo\AdicionalPericulosidade.class
+ead5\com\br\calculoclt\calculo\ValeRefeicao.class
+ead5\com\br\calculoclt\calculo\DescINSS.class
+ead5\com\br\calculoclt\calculo\FGTS.class
+ead5\com\br\calculoclt\calculo\CalcFaltas.class
+ead5\com\br\calculoclt\controller\CalculoController.class
+ead5\com\br\calculoclt\CalculoCltAPI.class
+ead5\com\br\calculoclt\calculo\CalculoBase.class
+ead5\com\br\calculoclt\calculo\ContraCheque.class
+ead5\com\br\calculoclt\calculo\ValeTransporte.class
+ead5\com\br\calculoclt\calculo\DemaisBeneficios.class
